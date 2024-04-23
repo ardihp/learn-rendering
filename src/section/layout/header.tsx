@@ -8,57 +8,63 @@ import { usePathname } from "next/navigation";
 export default function Header() {
   const pathname = usePathname();
 
-  console.log(pathname);
-
   return (
-    <div className="flex z-10 w-full max-w-5xl items-center justify-between font-mono text-sm">
-      <div className="flex gap-4">
-        <Link href="/">
-          <p
-            className={`justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 ${
-              pathname === "/" && "!bg-white/10"
-            }`}
-          >
-            <code className="font-mono font-bold">Home</code>
-          </p>
-        </Link>
-        <Link href="/client-rendering">
-          <p
-            className={`justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 ${
-              pathname === "/client-rendering" && "!bg-white/10"
-            }`}
-          >
-            <code className="font-mono font-bold">Client Side</code>
-          </p>
-        </Link>
-        <Link href="/server-rendering">
-          <p
-            className={`justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30 ${
-              pathname === "/server-rendering" && "!bg-white/10"
-            }`}
-          >
-            <code className="font-mono font-bold">Server Side</code>
-          </p>
-        </Link>
-      </div>
+    <div className="sticky top-12 w-full max-w-screen-xl mx-auto p-4 bg-slate-300/5 border border-white/15 backdrop-blur-lg rounded-3xl">
+      <div className="flex z-10 items-center justify-between text-sm">
+        <div className="flex gap-5">
+          <Link href="/">
+            <p
+              className={`p-4 rounded-xl border border-neutral-800 bg-zinc-800/30 font-bold tracking-wide ${
+                pathname === "/" &&
+                "!bg-gradient-to-tr from-pink-600 to-indigo-600 border-x-pink-300 border-y-indigo-200"
+              }`}
+            >
+              Home
+            </p>
+          </Link>
+          <Link href="/client-rendering">
+            <p
+              className={`p-4 rounded-xl border border-neutral-800 bg-zinc-800/30 font-bold tracking-wide ${
+                pathname === "/client-rendering" &&
+                "!bg-gradient-to-tr from-pink-200 to-indigo-600 border-x-pink-300 border-y-indigo-200"
+              }`}
+            >
+              Client Side Rendering
+            </p>
+          </Link>
+          <Link href="/server-rendering">
+            <p
+              className={`p-4 rounded-xl border border-neutral-800 bg-zinc-800/30 font-bold tracking-wide ${
+                pathname === "/server-rendering" &&
+                "!bg-gradient-to-tr from-indigo-200 to-pink-600 border-x-pink-300 border-y-indigo-200"
+              }`}
+            >
+              Server Side Rendering
+            </p>
+          </Link>
+        </div>
 
-      <div className="fixed bottom-0 left-0 flex h-48 items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-        <a
-          className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          By{" "}
-          <Image
-            src="/vercel.svg"
-            alt="Vercel Logo"
-            className="dark:invert"
-            width={100}
-            height={24}
-            priority
-          />
-        </a>
+        <div className="relative mr-4">
+          <div className="fixed bottom-0 left-0 flex h-48 items-end justify-center lg:static lg:size-auto bg-transparent">
+            <a
+              className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
+              href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              By{" "}
+              <Image
+                src="/vercel.svg"
+                alt="Vercel Logo"
+                className="dark:invert"
+                width={100}
+                height={24}
+                priority
+              />
+            </a>
+            <div className="absolute bg-gradient-to-br from-pink-500 to-indigo-600 p-4 blur-2xl w-20 h-12 -z-10 -top-8 -right-4"></div>
+          </div>
+        </div>
       </div>
     </div>
   );

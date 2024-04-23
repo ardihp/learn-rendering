@@ -22,10 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + poppins.className}>
-        <div className="flex min-h-screen flex-col items-center p-24 gap-12">
+        <div className="flex min-h-screen flex-col items-center p-12 gap-12">
           <Header />
 
-          <div className="flex w-full h-full flex-grow max-w-5xl">{children}</div>
+          <div className="flex w-full h-full flex-grow max-w-screen-xl mx-auto">{children}</div>
         </div>
       </body>
     </html>
