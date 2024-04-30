@@ -14,9 +14,9 @@ export default function Header() {
         <div className="flex gap-5">
           <Link href="/">
             <p
-              className={`p-4 rounded-xl border border-neutral-800 bg-zinc-800/30 font-bold tracking-wide ${
+              className={`header-item ${
                 pathname === "/" &&
-                "!bg-gradient-to-tr from-pink-600 to-indigo-600 border-x-pink-300 border-y-indigo-200"
+                "!bg-gradient-to-tr from-pink-600 to-indigo-600 !border-x-pink-300 !border-y-indigo-200"
               }`}
             >
               Home
@@ -24,9 +24,9 @@ export default function Header() {
           </Link>
           <Link href="/client-rendering">
             <p
-              className={`p-4 rounded-xl border border-neutral-800 bg-zinc-800/30 font-bold tracking-wide ${
-                pathname === "/client-rendering" &&
-                "!bg-gradient-to-tr from-pink-200 to-indigo-600 border-x-pink-300 border-y-indigo-200"
+              className={`header-item ${
+                pathname?.includes("/client-rendering") &&
+                "!bg-gradient-to-tr from-pink-100 to-indigo-600 !border-x-pink-300 !border-y-indigo-200"
               }`}
             >
               Client Side Rendering
@@ -34,9 +34,9 @@ export default function Header() {
           </Link>
           <Link href="/server-rendering">
             <p
-              className={`p-4 rounded-xl border border-neutral-800 bg-zinc-800/30 font-bold tracking-wide ${
-                pathname === "/server-rendering" &&
-                "!bg-gradient-to-tr from-indigo-200 to-pink-600 border-x-pink-300 border-y-indigo-200"
+              className={`header-item ${
+                pathname?.includes("/server-rendering") &&
+                "!bg-gradient-to-tr from-indigo-100 to-pink-600 !border-x-pink-300 !border-y-indigo-200"
               }`}
             >
               Server Side Rendering

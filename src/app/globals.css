@@ -31,3 +31,31 @@ body {
     text-wrap: balance;
   }
 }
+
+@layer components {
+  .header-item {
+    @apply p-4 rounded-xl border border-neutral-800 bg-zinc-800/30 font-medium tracking-wide hover:border-neutral-600 hover:bg-zinc-800/85;
+  }
+
+  .card-pokemon {
+    @apply flex flex-col items-center p-4 gap-6 w-full rounded-3xl bg-slate-300/5 border border-white/15 hover:border-white/35 hover:cursor-pointer hover:bg-slate-300/15 transition duration-200 ease-in-out;
+  }
+
+  .button-404 {
+    @apply flex flex-col items-end;
+
+    &:hover {
+      .icon-chevron {
+        @apply opacity-100 mr-2;
+      }
+
+      .under {
+        @apply w-7/12;
+      }
+    }
+  }
+
+  .chip-type {
+    @apply flex gap-3 items-center justify-center border rounded-full bg-slate-300/5 border-white/15 p-3;
+  }
+}

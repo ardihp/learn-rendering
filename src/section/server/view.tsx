@@ -11,7 +11,7 @@ export default async function ServerView() {
       <div className="columns-5 gap-6">
         {lists.map((item: PokemonList, key: number) => (
           <div className="flex mb-6" key={key}>
-            <div className="flex flex-col items-center p-4 gap-6 w-full rounded-xl bg-slate-300/5 border border-white/15">
+            <div className="card-pokemon">
               <Image
                 src={IMAGE_SPRITES(Number(item.url?.split("/")?.[6]))}
                 alt={`Pokemon-${item.name}`}
