@@ -17,18 +17,19 @@ export default function ClientDetailPokemonView({
 }: ClientDetailPokemonViewProps) {
   const [isLoading, setLoading] = useState<boolean>(true);
   const [details, setDetail] = useState<PokemonDetail>();
-  const [color, setColor] = useState<string>();
+  const [type, setType] = useState<string>("normal");
 
   useEffect(() => {
     axios.get(`/pokemon/${pokemon}`).then((res) => {
       setDetail(res?.data);
-
-      setTimeout(() => setLoading(false), 500);
+      setLoading(false);
     });
   }, []);
 
   useEffect(() => {
-    setColor(ColorType(details?.types?.[0]?.type?.name || ""));
+    if (details) {
+      setType(details?.types?.[0]?.type?.name);
+    }
   }, [details]);
 
   return isLoading ? (
@@ -69,34 +70,71 @@ export default function ClientDetailPokemonView({
                   <div className="flex items-center gap-3">
                     <p className="capitalize">{pokeStat?.stat?.name}</p>
 
-                    <p className={`font-medium text-[${color}]`}>
+                    <p
+                      className={`font-medium leading-none`}
+                      style={{ color: ColorType(type) }}
+                    >
                       {pokeStat?.base_stat}
                     </p>
                   </div>
 
-                  <progress
-                    className={`progress w-64`}
-                    value={pokeStat?.base_stat || 0}
-                    max="100"
-                  />
+                  <div className="h-2 w-64 rounded-full bg-slate-200/15">
+                    <div
+                      className={`h-2 rounded-full`}
+                      style={{
+                        width: `${pokeStat?.base_stat}%`,
+                        backgroundColor: ColorType(type),
+                      }}
+                    />
+                  </div>
                 </div>
               ))}
             </section>
           </div>
 
-          <div className="flex relative w-full items-center justify-center overflow-hidden">
-            <div className="absolute w-[375px] h-[375px] rounded-full border-2 border-dashed border-white/10 z-[3]">
-              <div className="h-full w-full rounded-full bg-gradient-to-t from-white/35 from-[5%] via-black via-20% to-black p-[1px] animate-spin-slow">
+          <div className="flex relative w-full items-center justify-center overflow-hidden pr-12">
+            <div
+              className="absolute w-[375px] h-[375px] rounded-full border-2 border-dashed border-slate-500/15 z-[3]"
+              style={{ borderColor: `${ColorType(type)}1f` }}
+            >
+              <div
+                className="h-full w-full rounded-full p-[1px] animate-spin-fast"
+                style={{
+                  background: `conic-gradient(#FFFFFF1f 90%, ${ColorType(
+                    type
+                  )}c9)`,
+                }}
+              >
                 <div className="h-full w-full bg-black rounded-full" />
               </div>
             </div>
-            <div className="absolute w-[575px] h-[575px] rounded-full border-2 border-dashed border-white/10 z-[2]">
-              <div className="h-full w-full rounded-full bg-gradient-to-br from-white from-[5%] via-black via-20% to-black p-[1px] animate-spin-slow">
+            <div
+              className="absolute w-[535px] h-[535px] rounded-full border-2 border-dashed border-slate-500/15 z-[2]"
+              style={{ borderColor: `${ColorType(type)}1f` }}
+            >
+              <div
+                className="h-full w-full rounded-full p-[1px] animate-spin-medium"
+                style={{
+                  background: `conic-gradient(#FFFFFF1f 90%, ${ColorType(
+                    type
+                  )}c9)`,
+                }}
+              >
                 <div className="h-full w-full bg-black rounded-full" />
               </div>
             </div>
-            <div className="absolute w-[775px] h-[775px] rounded-full border-2 border-dashed border-white/10 z-[1]">
-              <div className="h-full w-full rounded-full bg-gradient-to-l from-white/35 from-[5%] via-black via-20% to-black p-[1px] animate-spin-slow">
+            <div
+              className="absolute w-[685px] h-[685px] rounded-full border-2 border-dashed border-slate-500/15 z-[1]"
+              style={{ borderColor: `${ColorType(type)}1f` }}
+            >
+              <div
+                className="h-full w-full rounded-full p-[1px] animate-spin-slow"
+                style={{
+                  background: `conic-gradient(#FFFFFF1f 90%, ${ColorType(
+                    type
+                  )}c9)`,
+                }}
+              >
                 <div className="h-full w-full bg-black rounded-full" />
               </div>
             </div>
