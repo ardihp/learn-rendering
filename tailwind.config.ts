@@ -6,6 +6,7 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/section/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/helpers/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -36,6 +37,8 @@ const config: Config = {
       },
       animation: {
         "spin-slow": "spin 7s linear infinite",
+        "spin-medium": "spin 5s linear infinite",
+        "spin-fast": "spin 3s linear infinite",
       },
     },
   },
