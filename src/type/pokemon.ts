@@ -10,11 +10,19 @@ export interface PokemonDetail {
   weight: number;
   height: number;
   types: PokemonType[];
+  stats: PokemonStat[];
 }
 
 export interface PokemonType {
   slot: number;
   type: {
+    name: string;
+  };
+}
+
+export interface PokemonStat {
+  base_stat: number;
+  stat: {
     name: string;
   };
 }

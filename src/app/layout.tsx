@@ -24,9 +24,9 @@ export default function RootLayout({
         <div className="flex min-h-screen flex-col items-center p-12 gap-12">
           <Header />
 
-          <div className="flex w-full h-full flex-grow max-w-screen-xl mx-auto">
+          <main className="flex w-full h-full flex-grow max-w-screen-xl mx-auto">
             {children}
-          </div>
+          </main>
         </div>
       </body>
     </html>

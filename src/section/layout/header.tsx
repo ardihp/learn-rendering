@@ -9,7 +9,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <div className="sticky top-12 w-full max-w-screen-xl mx-auto p-4 bg-slate-300/5 border border-white/15 backdrop-blur-lg rounded-3xl">
+    <header className="sticky top-12 w-full max-w-screen-xl mx-auto p-4 bg-slate-300/5 border border-white/15 backdrop-blur-lg rounded-3xl">
       <div className="flex z-10 items-center justify-between text-sm">
         <div className="flex gap-5">
           <Link href="/">
@@ -66,6 +66,6 @@ export default function Header() {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
