@@ -5,6 +5,12 @@ import { ColorType } from "@/helpers/color-type";
 import { IMAGE_SPRITES } from "@/helpers/config";
 import Loader from "@/section/loading";
 import { PokemonDetail } from "@/type/pokemon";
+import {
+  IconLineHeight,
+  IconNorthStar,
+  IconRulerMeasure,
+  IconWeight,
+} from "@tabler/icons-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -82,7 +88,7 @@ export default function ClientDetailPokemonView({
                     <div
                       className={`h-2 rounded-full`}
                       style={{
-                        width: `${pokeStat?.base_stat}%`,
+                        width: `${pokeStat?.base_stat / 3}%`,
                         backgroundColor: ColorType(type),
                       }}
                     />
@@ -92,59 +98,78 @@ export default function ClientDetailPokemonView({
             </section>
           </div>
 
-          <div className="flex relative w-full items-center justify-center overflow-hidden pr-12">
-            <div
-              className="absolute w-[375px] h-[375px] rounded-full border-2 border-dashed border-slate-500/15 z-[3]"
-              style={{ borderColor: `${ColorType(type)}1f` }}
-            >
+          <div className="flex items-center relative w-full">
+            <div className="flex relative w-full h-full items-center justify-center overflow-hidden pr-24">
               <div
-                className="h-full w-full rounded-full p-[1px] animate-spin-fast"
-                style={{
-                  background: `conic-gradient(#FFFFFF1f 90%, ${ColorType(
-                    type
-                  )}c9)`,
-                }}
+                className="absolute w-[375px] h-[375px] rounded-full border-2 border-dashed border-slate-500/15 z-[3]"
+                style={{ borderColor: `${ColorType(type)}1a` }}
               >
-                <div className="h-full w-full bg-black rounded-full" />
+                <div
+                  className="h-full w-full rounded-full p-[2px] animate-spin-fast"
+                  style={{
+                    background: `conic-gradient(#FFFFFF00 90%, ${ColorType(
+                      type
+                    )}c9)`,
+                  }}
+                >
+                  <div className="h-full w-full bg-black rounded-full" />
+                </div>
+              </div>
+              <div
+                className="absolute w-[535px] h-[535px] rounded-full border-2 border-dashed border-slate-500/15 z-[2]"
+                style={{ borderColor: `${ColorType(type)}1a` }}
+              >
+                <div
+                  className="h-full w-full rounded-full p-[1px] animate-spin-medium"
+                  style={{
+                    background: `conic-gradient(#FFFFFF00 90%, ${ColorType(
+                      type
+                    )}c9)`,
+                  }}
+                >
+                  <div className="h-full w-full bg-black rounded-full" />
+                </div>
+              </div>
+              <div
+                className="absolute w-[685px] h-[685px] rounded-full border-2 border-dashed border-slate-500/15 z-[1]"
+                style={{ borderColor: `${ColorType(type)}1a` }}
+              >
+                <div
+                  className="h-full w-full rounded-full p-[1px] animate-spin-slow"
+                  style={{
+                    background: `conic-gradient(#FFFFFF00 90%, ${ColorType(
+                      type
+                    )}c9)`,
+                  }}
+                >
+                  <div className="h-full w-full bg-black rounded-full" />
+                </div>
+              </div>
+              <div className="flex h-full w-full z-[3] items-center justify-center">
+                <Image
+                  src={IMAGE_SPRITES(Number(details?.id))}
+                  width={325}
+                  height={325}
+                  alt={`Pokemon ${details?.name}`}
+                />
               </div>
             </div>
-            <div
-              className="absolute w-[535px] h-[535px] rounded-full border-2 border-dashed border-slate-500/15 z-[2]"
-              style={{ borderColor: `${ColorType(type)}1f` }}
-            >
-              <div
-                className="h-full w-full rounded-full p-[1px] animate-spin-medium"
-                style={{
-                  background: `conic-gradient(#FFFFFF1f 90%, ${ColorType(
-                    type
-                  )}c9)`,
-                }}
-              >
-                <div className="h-full w-full bg-black rounded-full" />
-              </div>
-            </div>
-            <div
-              className="absolute w-[685px] h-[685px] rounded-full border-2 border-dashed border-slate-500/15 z-[1]"
-              style={{ borderColor: `${ColorType(type)}1f` }}
-            >
-              <div
-                className="h-full w-full rounded-full p-[1px] animate-spin-slow"
-                style={{
-                  background: `conic-gradient(#FFFFFF1f 90%, ${ColorType(
-                    type
-                  )}c9)`,
-                }}
-              >
-                <div className="h-full w-full bg-black rounded-full" />
-              </div>
-            </div>
-            <div className="flex h-full w-full z-[3] items-center justify-center">
-              <Image
-                src={IMAGE_SPRITES(Number(details?.id))}
-                width={325}
-                height={325}
-                alt={`Pokemon ${details?.name}`}
-              />
+
+            <div className="flex flex-col absolute right-0 z-[1]">
+              <ul className="flex flex-col gap-2 border border-white/15 rounded-lg p-2">
+                <li className="detail-pokemon-list">
+                  <IconNorthStar className="rotate-90" />
+                  <p className="text-xs">{details?.base_experience || 0} xp</p>
+                </li>
+                <li className="detail-pokemon-list">
+                  <IconRulerMeasure className="rotate-90" />
+                  <p className="text-xs">{(details?.height || 0) / 10} m</p>
+                </li>
+                <li className="detail-pokemon-list">
+                  <IconWeight />
+                  <p className="text-xs">{(details?.weight || 0) / 10} kg</p>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

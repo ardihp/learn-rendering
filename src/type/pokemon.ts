@@ -9,6 +9,7 @@ export interface PokemonDetail {
   order: number;
   weight: number;
   height: number;
+  base_experience: number;
   types: PokemonType[];
   stats: PokemonStat[];
 }
