@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/section/layout/header";
+import Scroll from "@/section/layout/scroll";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={poppins.className}>
+        <Scroll />
         <div className="flex min-h-screen flex-col items-center p-12 gap-12">
           <Header />
 

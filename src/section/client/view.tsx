@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { PokemonList } from "@/type/pokemon";
 import dynamic from "next/dynamic";
 import SkeletonCard from "./components/skeleton-card";
-import { InView, useInView } from "react-intersection-observer";
+import { useInView } from "react-intersection-observer";
 
 const PokemonCard = dynamic(() => import("./components/pokemon-card"), {
   loading: () => <SkeletonCard />,
