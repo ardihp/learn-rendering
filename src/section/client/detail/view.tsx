@@ -112,7 +112,7 @@ export default function ClientDetailPokemonView({
                     )}c9)`,
                   }}
                 >
-                  <div className="h-full w-full bg-black rounded-full" />
+                  <div className="h-full w-full bg-background rounded-full" />
                 </div>
               </div>
               <div
@@ -127,7 +127,7 @@ export default function ClientDetailPokemonView({
                     )}c9)`,
                   }}
                 >
-                  <div className="h-full w-full bg-black rounded-full" />
+                  <div className="h-full w-full bg-background rounded-full" />
                 </div>
               </div>
               <div
@@ -142,7 +142,7 @@ export default function ClientDetailPokemonView({
                     )}c9)`,
                   }}
                 >
-                  <div className="h-full w-full bg-black rounded-full" />
+                  <div className="h-full w-full bg-background rounded-full" />
                 </div>
               </div>
               <div className="flex h-full w-full z-[3] items-center justify-center">
