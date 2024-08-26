@@ -8,9 +8,9 @@ export default async function ServerView() {
   const lists = await getData();
   return (
     <div className="flex flex-col gap-4 w-full">
-      <div className="columns-5 gap-6">
+      <div className="grid grid-cols-5 gap-6">
         {lists.map((item: PokemonList, key: number) => (
-          <div className="flex mb-6" key={key}>
+          <div className="flex" key={key}>
             <div className="card-pokemon">
               <Image
                 src={IMAGE_SPRITES(Number(item.url?.split("/")?.[6]))}
@@ -29,7 +29,7 @@ export default async function ServerView() {
 }
 
 async function getData() {
-  const res = await axios.get("/pokemon");
+  const res = await axios.get("/pokemon?limit=25");
 
   return res?.data?.results;
 }
