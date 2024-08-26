@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={poppins.className}>
         <div className="flex min-h-screen flex-col items-center p-12 gap-12">
           <Header />
