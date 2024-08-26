@@ -6,12 +6,14 @@ import { IMAGE_SPRITES } from "@/helpers/config";
 import Loader from "@/section/loading";
 import { PokemonDetail } from "@/type/pokemon";
 import {
+  IconChevronLeft,
   IconLineHeight,
   IconNorthStar,
   IconRulerMeasure,
   IconWeight,
 } from "@tabler/icons-react";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 interface ClientDetailPokemonViewProps {
@@ -50,6 +52,9 @@ export default function ClientDetailPokemonView({
         <div className="flex h-full">
           <div className="flex flex-col min-w-[475px]">
             <div className="flex items-center gap-4 w-fit">
+              <Link href="/client-rendering" className="chip-type cursor-pointer">
+                <IconChevronLeft />
+              </Link>
               {details?.types?.map((item, key) => (
                 <div key={key} className="chip-type">
                   <Image
