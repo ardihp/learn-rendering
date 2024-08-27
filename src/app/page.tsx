@@ -1,10 +1,14 @@
+import Ripple from "@/components/magicui/ripple";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="flex flex-col flex-grow items-center">
-      <section className="mt-auto">
-        <p className="text-6xl font-bold">Poke Render</p>
+      <section className="relative flex h-full w-full flex-col items-center justify-center">
+        <p className="text-4xl font-bold z-10 text-center leading-8">
+          Poke <br /> Render
+        </p>
+        <Ripple mainCircleSize={230} />
       </section>
 
       <section className="mt-auto grid text-center w-full max-w-screen-xl lg:grid-cols-4 lg:text-left">

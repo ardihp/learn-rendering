@@ -30,7 +30,7 @@ export default function ClientDetailPokemonView({
   useEffect(() => {
     axios.get(`/pokemon/${pokemon}`).then((res) => {
       setDetail(res?.data);
-      setLoading(false);
+      setTimeout(() => setLoading(false), 400);
     });
   }, []);
 
@@ -52,7 +52,10 @@ export default function ClientDetailPokemonView({
         <div className="flex h-full">
           <div className="flex flex-col min-w-[475px]">
             <div className="flex items-center gap-4 w-fit">
-              <Link href="/client-rendering" className="chip-type cursor-pointer">
+              <Link
+                href="/client-rendering"
+                className="chip-type cursor-pointer"
+              >
                 <IconChevronLeft />
               </Link>
               {details?.types?.map((item, key) => (
