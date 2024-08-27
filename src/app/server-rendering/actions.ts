@@ -14,3 +14,13 @@ export const getData = cache(
     }
   }
 );
+
+export const getDetail = cache(async (name: string) => {
+  try {
+    const res = await axios.get(`/pokemon/${name}`);
+
+    return res?.data;
+  } catch (error) {
+    throw new Error("Failed to get detail pokemon");
+  }
+});
