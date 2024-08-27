@@ -20,21 +20,19 @@ export default function PokemonCard({ pokemon }: PokemonCardProps) {
 
   return (
     <Link href={pathname + "/" + pokemon.name} ref={ref}>
-      <div className="flex">
-        <div className="card-pokemon">
-          {inView ? (
+      <div className="card-pokemon">
+        <div className="relative z-[1] h-[80px] md:h-[140px] w-[80px] md:w-[140px]">
+          {inView && (
             <Image
               src={IMAGE_SPRITES(Number(pokemon.url?.split("/")?.[6]))}
               alt={pokemon.name}
-              width={160}
-              height={160}
+              fill
+              sizes="200px"
             />
-          ) : (
-            <div className="w-[160px] h-[160px]"></div>
           )}
-
-          <p>{pokemon.name}</p>
         </div>
+
+        <p>{pokemon.name}</p>
       </div>
     </Link>
   );
