@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={poppins.className}>
         <Scroll />
-        <div className="flex min-h-screen flex-col items-center p-6 xl:p-12 gap-6 xl:gap-12">
+        <div className="flex min-h-screen flex-col items-center p-6 md:pb-6 xl:p-12 gap-6 xl:gap-12">
           <Header />
 
           <main className="flex w-full h-full flex-grow max-w-screen-xl mx-auto">
