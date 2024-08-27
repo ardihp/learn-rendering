@@ -1,35 +1,20 @@
-import axios from "@/helpers/axios";
-import { IMAGE_SPRITES } from "@/helpers/config";
 import { PokemonList } from "@/type/pokemon";
-import Image from "next/image";
 import React from "react";
+import PokemonCard from "./components/pokemon-card";
+import { getData } from "@/app/server-rendering/actions";
+import LoadMore from "./components/load-more";
 
 export default async function ServerView() {
-  const lists = await getData();
+  const lists = await getData({ limit: 25 });
+
   return (
     <div className="flex flex-col gap-4 w-full">
       <div className="grid grid-cols-5 gap-6">
-        {lists.map((item: PokemonList, key: number) => (
-          <div className="flex" key={key}>
-            <div className="card-pokemon">
-              <Image
-                src={IMAGE_SPRITES(Number(item.url?.split("/")?.[6]))}
-                alt={`Pokemon-${item.name}`}
-                width={160}
-                height={160}
-              />
-
-              <p>{item.name}</p>
-            </div>
-          </div>
+        {lists.map((pokemon: PokemonList, key: number) => (
+          <PokemonCard key={key} pokemon={pokemon} />
         ))}
       </div>
+      <LoadMore />
     </div>
   );
-}
-
-async function getData() {
-  const res = await axios.get("/pokemon?limit=25");
-
-  return res?.data?.results;
 }
