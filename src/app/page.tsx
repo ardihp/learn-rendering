@@ -14,13 +14,13 @@ export default function Home() {
           passHref
         >
           <h2 className="mb-3 text-2xl font-medium">
-            CSR{" "}
+            Client{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
           <p className="m-0 max-w-[30ch] text-sm font-thin opacity-50">
-            Ini rendernya di depan (client / browser user).
+            Client Side Rendering with Client Side Fetching
           </p>
         </Link>
 
@@ -30,13 +30,13 @@ export default function Home() {
           passHref
         >
           <h2 className="mb-3 text-2xl font-medium">
-            SSR{" "}
+            Server{" "}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
             </span>
           </h2>
           <p className="m-0 max-w-[30ch] text-sm font-thin opacity-50">
-            Ini rendernya di belakang (server).
+            Server Side Rendering with Server side Fetching
           </p>
         </Link>
       </section>
