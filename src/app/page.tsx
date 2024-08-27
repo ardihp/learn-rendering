@@ -8,7 +8,7 @@ export default function Home() {
         <p className="text-4xl font-bold z-10 text-center leading-8">
           Poke <br /> Render
         </p>
-        <Ripple mainCircleSize={230} />
+        <Ripple mainCircleSize={280} />
       </section>
 
       <section className="mt-auto grid text-center w-full max-w-screen-xl lg:grid-cols-4 lg:text-left">
