@@ -39,9 +39,9 @@ export default function ClientView() {
       <title>Client Side Rendering | Poke Render</title>
 
       <div className="flex flex-col gap-4 w-full">
-        <div className="grid grid-cols-5 gap-6">
+        <div className="grid grid-cols-4 xl:grid-cols-5 gap-6">
           {loading
-            ? [...new Array(15)]?.map((item, key) => <SkeletonCard key={key} />)
+            ? [...new Array(25)]?.map((item, key) => <SkeletonCard key={key} />)
             : lists.map((pokemon: PokemonList, key: number) => (
                 <div ref={key % 15 === 0 ? ref : null} key={key}>
                   <PokemonCard pokemon={pokemon} />
