@@ -81,7 +81,7 @@
 
 @layer components {
   .header-item {
-    @apply p-4 rounded-xl border border-neutral-800 bg-zinc-800/30 font-medium tracking-wide hover:border-neutral-600 hover:bg-zinc-800/85;
+    @apply p-4 rounded-xl border border-neutral-800 bg-zinc-800/30 font-medium tracking-wide hover:border-neutral-600 hover:bg-zinc-800/85 duration-300 ease-in-out;
   }
 
   .card-pokemon {
@@ -103,7 +103,7 @@
   }
 
   .chip-type {
-    @apply flex gap-3 items-center justify-center border rounded-full bg-slate-300/5 border-white/15 p-3;
+    @apply flex gap-3 items-center justify-center border rounded-full bg-slate-300/5 border-white/15 p-3 hover:border-neutral-600 hover:bg-zinc-800/85 duration-300 ease-in-out;
   }
 
   .detail-pokemon-list {
