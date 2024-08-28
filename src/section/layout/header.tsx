@@ -10,8 +10,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="hidden md:block sticky top-6 xl:top-12 w-full max-w-screen-xl mx-auto p-4 bg-slate-300/5 border border-white/15 backdrop-blur-lg rounded-3xl z-[2]">
-        <div className="flex z-10 items-center justify-between text-sm">
+      <header className="hidden md:block sticky top-6 xl:top-12 w-full max-w-screen-xl mx-auto p-4 bg-slate-300/5 border border-white/15 backdrop-blur-lg rounded-3xl z-10">
+        <div className="flex items-center justify-between text-sm">
           <div className="flex gap-5">
             <Link href="/">
               <p
