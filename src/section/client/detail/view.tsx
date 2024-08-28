@@ -40,8 +40,6 @@ export default function ClientDetailPokemonView({
     }
   }, [details]);
 
-  console.log(details);
-
   return isLoading ? (
     <div className="flex flex-col w-full">
       <Loader />
@@ -219,7 +217,9 @@ export default function ClientDetailPokemonView({
               {details?.stats?.map((pokeStat, key) => (
                 <div key={key} className="flex flex-col gap-1">
                   <div className="flex items-center gap-2">
-                    <p className="capitalize text-xs md:text-sm">{pokeStat?.stat?.name}</p>
+                    <p className="capitalize text-xs md:text-sm">
+                      {pokeStat?.stat?.name}
+                    </p>
 
                     <p
                       className="font-medium leading-none text-xs md:text-sm"

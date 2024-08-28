@@ -28,13 +28,10 @@ export default function LoadMore() {
 
   return (
     <>
-      {lists?.length >= 1 && (
-        <div className="grid grid-cols-5 gap-6">
-          {lists.map((pokemon: PokemonList, key: number) => (
-            <PokemonCard key={key} pokemon={pokemon} />
-          ))}
-        </div>
-      )}
+      {lists?.length >= 1 &&
+        lists.map((pokemon: PokemonList, key: number) => (
+          <PokemonCard key={key} pokemon={pokemon} />
+        ))}
       <div className="w-full h-[2px]" ref={ref} />
     </>
   );
