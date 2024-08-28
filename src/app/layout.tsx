@@ -21,6 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link
+          rel="icon"
+          type="image/png"
+          href="/assets/poke-ball.png"
+          sizes="48x48"
+        />
+      </head>
       <body className={poppins.className}>
         <Scroll />
         <div className="flex min-h-screen flex-col items-center p-6 md:pb-6 xl:p-12 gap-6 xl:gap-12">
