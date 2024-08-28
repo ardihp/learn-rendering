@@ -31,7 +31,7 @@ export default function Home() {
       <section className="grid w-full max-w-screen-xl lg:grid-cols-4 md:mt-auto gap-4">
         <Link
           href="/client-rendering"
-          className="group rounded-lg flex flex-col items-start border border-transparent px-5 py-4 transition-colors border-neutral-700 bg-neutral-800/30"
+          className="group rounded-lg flex flex-col items-start border px-5 py-4 transition-colors border-neutral-700 bg-neutral-800/30"
           passHref
         >
           <h2 className="md:mb-3 text-lg md:text-2xl font-medium">
@@ -47,7 +47,7 @@ export default function Home() {
 
         <Link
           href="/server-rendering"
-          className="group rounded-lg flex flex-col items-start border border-transparent px-5 py-4 transition-colors border-neutral-700 bg-neutral-800/30"
+          className="group rounded-lg flex flex-col items-start border px-5 py-4 transition-colors border-neutral-700 bg-neutral-800/30"
           passHref
         >
           <h2 className="md:mb-3 text-lg md:text-2xl font-medium">
