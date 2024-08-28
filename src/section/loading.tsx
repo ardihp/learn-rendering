@@ -4,7 +4,7 @@ import React from "react";
 export default function Loader() {
   return (
     <>
-      <title>loading Data... | Poke Render</title>
+      <title>Loading Data... | Poke Render</title>
 
       <div className="flex flex-col gap-4 h-full items-center justify-center">
         <Image
