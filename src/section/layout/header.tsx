@@ -69,7 +69,7 @@ export default function Header() {
         </div>
       </header>
 
-      <header className="flex items-center md:hidden fixed bottom-0 w-full px-4 h-32 border-t border-white/15 bg-zinc-900 backdrop-blur-xl z-10 [mask-image:linear-gradient(to_bottom,transparent,#ffffffee,white,white)]">
+      <header className="flex items-center md:hidden fixed bottom-0 w-full px-4 h-32 border-t border-white/15 bg-background/90 backdrop-blur-xl z-10 [mask-image:linear-gradient(to_bottom,transparent,#ffffffee,white,white)]">
         <section className="flex justify-around items-center rounded-full w-full relative top-5">
           <Link href="/" className="p-4" passHref>
             <p
