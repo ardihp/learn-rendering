@@ -50,8 +50,8 @@ export default function ClientDetailPokemonView({
     <>
       <title>{`${details?.name} | Poke Render`}</title>
 
-      <div className="flex flex-col gap-6 w-full">
-        <div className="flex flex-col xl:hidden">
+      <div className="flex flex-col gap-6 w-full mb-16 md:mb-0">
+        <div className="flex xl:hidden flex-col">
           <div className="flex items-center gap-4 w-fit">
             <Link href="/client-rendering" className="chip-type cursor-pointer">
               <IconChevronLeft />
@@ -64,18 +64,20 @@ export default function ClientDetailPokemonView({
                   height={24}
                   alt="Pokemon type"
                 />
-                <p>{item.type.name}</p>
+                <p className="text-sm md:text-base">{item.type.name}</p>
               </div>
             ))}
           </div>
 
           <div className="flex gap-1 mt-3">
-            <p className="text-6xl font-semibold capitalize">{details?.name}</p>
-            <p className="text-2xl text-white/35 mt-auto">{`#${details?.order}`}</p>
+            <p className="text-[48px] leading-none md:text-6xl font-semibold capitalize">
+              {details?.name}
+            </p>
+            <p className="text-lg md:text-2xl text-white/35 mt-auto">{`#${details?.order}`}</p>
           </div>
         </div>
 
-        <div className="flex flex-col gap-6 xl:gap-0 xl:flex-row h-full">
+        <div className="flex flex-col gap-20 md:gap-6 xl:gap-0 xl:flex-row h-full">
           <div className="hidden xl:flex flex-col min-w-[475px]">
             <div className="flex items-center gap-4 w-fit">
               <Link
@@ -133,9 +135,9 @@ export default function ClientDetailPokemonView({
           </div>
 
           <div className="flex items-center relative w-full">
-            <div className="flex relative w-full h-[685px] xl:h-full items-center justify-center overflow-hidden xl:pr-24">
+            <div className="flex relative w-full h-[365px] md:h-[685px] xl:h-full items-center justify-center overflow-hidden xl:pr-24">
               <div
-                className="absolute w-[375px] h-[375px] rounded-full border-2 border-dashed border-slate-500/15 z-[3]"
+                className="absolute w-[275px] md:w-[375px] h-[275px] md:h-[375px] rounded-full border-2 border-dashed border-slate-500/15 z-[3]"
                 style={{ borderColor: `${ColorType(type)}1a` }}
               >
                 <div
@@ -150,7 +152,7 @@ export default function ClientDetailPokemonView({
                 </div>
               </div>
               <div
-                className="absolute w-[535px] h-[535px] rounded-full border-2 border-dashed border-slate-500/15 z-[2]"
+                className="absolute w-[355px] md:w-[535px] h-[355px] md:h-[535px] rounded-full border-2 border-dashed border-slate-500/15 z-[2]"
                 style={{ borderColor: `${ColorType(type)}1a` }}
               >
                 <div
@@ -165,7 +167,7 @@ export default function ClientDetailPokemonView({
                 </div>
               </div>
               <div
-                className="absolute w-[685px] h-[685px] rounded-full border-2 border-dashed border-slate-500/15 z-[1]"
+                className="absolute w-[435px] md:w-[685px] h-[435px] md:h-[685px] rounded-full border-2 border-dashed border-slate-500/15 z-[1]"
                 style={{ borderColor: `${ColorType(type)}1a` }}
               >
                 <div
@@ -180,51 +182,54 @@ export default function ClientDetailPokemonView({
                 </div>
               </div>
               <div className="flex h-full w-full z-[3] items-center justify-center">
-                <Image
-                  src={IMAGE_SPRITES(Number(details?.id))}
-                  width={325}
-                  height={325}
-                  alt={`Pokemon ${details?.name}`}
-                />
+                <figure className="relative w-[225px] md:w-[325px] h-[225px] md:h-[325px]">
+                  <Image
+                    src={IMAGE_SPRITES(Number(details?.id))}
+                    alt={`Pokemon ${details?.name}`}
+                    fill
+                    sizes="400px"
+                    className="object-cover object-center"
+                  />
+                </figure>
               </div>
             </div>
 
-            <div className="flex flex-col absolute right-[40px] xl:right-0 z-[10]">
-              <ul className="flex flex-col gap-2 border border-white/15 rounded-lg p-2">
+            <div className="flex flex-col absolute bottom-[-54px] right-0 md:right-[40px] md:bottom-auto xl:right-0 z-[10]">
+              <ul className="flex md:flex-col gap-2 border border-white/15 rounded-lg p-2">
                 <li className="detail-pokemon-list">
-                  <IconNorthStar className="rotate-90" />
+                  <IconNorthStar className="rotate-90 w-[20px] md:w-[24px] h-[20px] md:h-[24px]" />
                   <p className="text-xs">{details?.base_experience || 0} xp</p>
                 </li>
                 <li className="detail-pokemon-list">
-                  <IconRulerMeasure className="rotate-90" />
+                  <IconRulerMeasure className="rotate-90 w-[20px] md:w-[24px] h-[20px] md:h-[24px]" />
                   <p className="text-xs">{(details?.height || 0) / 10} m</p>
                 </li>
                 <li className="detail-pokemon-list">
-                  <IconWeight />
+                  <IconWeight className="w-[20px] md:w-[24px] h-[20px] md:h-[24px]" />
                   <p className="text-xs">{(details?.weight || 0) / 10} kg</p>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="flex xl:hidden flex-col border border-white/15 rounded-lg p-4 gap-4 w-fit">
-            <p className="text-lg font-medium">Stats</p>
+          <div className="flex xl:hidden flex-col border border-white/15 rounded-lg p-4 gap-4 w-full md:w-fit">
+            <p className="text-base md:text-lg font-medium">Stats</p>
 
             <section className="flex flex-col gap-4">
               {details?.stats?.map((pokeStat, key) => (
                 <div key={key} className="flex flex-col gap-1">
                   <div className="flex items-center gap-2">
-                    <p className="capitalize text-sm">{pokeStat?.stat?.name}</p>
+                    <p className="capitalize text-xs md:text-sm">{pokeStat?.stat?.name}</p>
 
                     <p
-                      className="font-medium leading-none text-sm"
+                      className="font-medium leading-none text-xs md:text-sm"
                       style={{ color: ColorType(type) }}
                     >
                       {pokeStat?.base_stat}
                     </p>
                   </div>
 
-                  <div className="h-2 w-64 rounded-full bg-slate-200/15">
+                  <div className="h-2 w-full md:w-64 rounded-full bg-slate-200/15">
                     <div
                       className={`h-2 rounded-full`}
                       style={{
